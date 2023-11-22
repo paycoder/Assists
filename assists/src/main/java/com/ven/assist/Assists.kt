@@ -22,6 +22,8 @@ object Assists {
      * 配置，均可自行修改
      */
     object Config {
+        var longStepDelay: Long = 2000
+        
         //默认步骤间隔时间，毫秒
         var defaultStepDelay: Long = 1000
 
