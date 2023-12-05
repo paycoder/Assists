@@ -22,12 +22,14 @@ object Assists {
      * 配置，均可自行修改
      */
     object Config {
-        var longStepDelay: Long = 2000
+        var delay2sec: Long = 2000
         
         //默认步骤间隔时间，毫秒
-        var defaultStepDelay: Long = 1000
+        var defaultDelay: Long = 1000
 
-        var shortStepDelay: Long = 500
+        var delay300ms: Long = 300
+
+        var delay500ms: Long = 500
 
         //日志TAG
         var logTag = "assists_log"
