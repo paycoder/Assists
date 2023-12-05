@@ -445,12 +445,12 @@ class UIOver private constructor(builder: Builder) {
          *
          * @return
          */
-        fun setStartRightCenter(): Builder {
+        fun setStartRightPosition(scale: Int = 2): Builder {
             val screenHeight = ScreenUtils.getAppScreenHeight()
             val screenWidth = ScreenUtils.getAppScreenWidth()
 
             this.startX = screenWidth
-            this.startY = screenHeight / 2
+            this.startY = screenHeight / scale
             return this
         }
 
