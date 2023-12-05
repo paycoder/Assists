@@ -449,8 +449,8 @@ class UIOver private constructor(builder: Builder) {
             val screenHeight = ScreenUtils.getAppScreenHeight()
             val screenWidth = ScreenUtils.getAppScreenWidth()
 
-            val startX: Int = screenWidth
-            val startY: Int = (screenHeight / scale).toInt()
+            this.startX = screenWidth
+            this.startY = (screenHeight / scale).toInt()
             return this
         }
 
