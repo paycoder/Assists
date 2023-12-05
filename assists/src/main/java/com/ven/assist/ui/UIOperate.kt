@@ -191,21 +191,21 @@ object UIOperate {
     /**
      * 获取App中心坐标滑动
      * @param slideDirection 滑动方向 大于0往左滑动(右翻页) 否则往右滑动(左翻页)
+     * @param centerDeviation 中心偏移 不居中是因为有logo或其他窗口，会影响到滑动
      */
-    fun getSlideXY(slideDirection: Int): Pair<FloatArray, FloatArray> {
+    fun getSlideXY(slideDirection: Int, centerDeviation: Int = 50, slideXSpan: Int = 250, slideYSpan: Int = 350): Pair<FloatArray, FloatArray> {
         val screenWidth = ScreenUtils.getAppScreenWidth()
         val statusBarHeight = BarUtils.getStatusBarHeight()
         val startX = (screenWidth / 2).toFloat()
-        //不取居中是因为有log窗口，会影响到滑动
-        val startY = (statusBarHeight + 50).toFloat()
-        //默认向右
-        val startLocation = floatArrayOf(startX, startY)
+        val startY = (statusBarHeight + centerDeviation).toFloat()
         return if(slideDirection > 0){
             //向右
-            Pair(startLocation, floatArrayOf(startX - 120, startY))
+            val startLocation = floatArrayOf(startX + slideXSpan, startY)
+            Pair(startLocation, floatArrayOf(startX - slideYSpan, startY))
         } else {
             //向左
-            Pair(startLocation, floatArrayOf(startX + 120, startY))
+            val startLocation = floatArrayOf(startX - slideXSpan, startY)
+            Pair(startLocation, floatArrayOf(startX + slideYSpan, startY))
         }
     }
 
